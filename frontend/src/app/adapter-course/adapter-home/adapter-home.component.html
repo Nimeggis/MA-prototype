@@ -1,0 +1,67 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="courseAdapter-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="courseAdapter-column">
+      <!-- Title Header -->
+      <div class="courseTitle">
+        <h1>{{ courseInfo?.courseName }}</h1>
+        <h2>Course Timeline</h2>
+      </div>
+      <!-- Timeline -->
+      <div class="timeline">
+        <div class="timelineFrame">
+          <div class="statusCircleGreen"></div>
+          <div class="line"></div>
+          <!-- Week 1 incl. assignments -->
+          <p class="week">Week 1:</p>
+          <p *ngIf="linkedAdapterNames.includes('Video Upload')" >Video - Pronunciation I</p>
+          <p *ngIf="linkedAdapterNames.includes('Quiz Upload')">Quiz - Pronunciation I</p>
+          <p *ngIf="linkedAdapterNames.includes('Flashcards')">Flashcard - Chapter I</p>
+          <p *ngIf="linkedAdapterNames.includes('Matching Exercise')">Matching - Chapter I</p>
+          <div class="line"></div>
+          <div class="statusCircleGreen"></div>
+          <div class="line"></div>
+          <!-- Week 2 incl. assignments -->
+          <p class="week">Week 2:</p>
+          <p *ngIf="linkedAdapterNames.includes('Video Upload')" >Video - Subjunctive I</p>
+          <p *ngIf="linkedAdapterNames.includes('Quiz Upload')">Quiz - Subjunctive I</p>
+          <p *ngIf="linkedAdapterNames.includes('Flashcards')">Flashcard - Chapter II</p>
+          <p *ngIf="linkedAdapterNames.includes('Matching Exercise')">Matching - Chapter II</p>
+          <div class="line"></div>
+          <div class="statusCircleGreenRed"></div>
+          <div class="line"></div>
+          <!-- Week 3 incl. assignments -->
+          <p class="week">Week 3:</p>
+          <p *ngIf="linkedAdapterNames.includes('Video Upload')" >Video - Prepositions I</p>
+          <p *ngIf="linkedAdapterNames.includes('Quiz Upload')">Quiz - Prepositions I</p>
+          <p *ngIf="linkedAdapterNames.includes('Flashcards')">Flashcard - Chapter III</p>
+          <p *ngIf="linkedAdapterNames.includes('Matching Exercise')">Matching - Chapter III</p>
+          <div class="line"></div>
+          <div class="statusCircleRed"></div>
+          <div class="line"></div>
+          <!-- Week 4 incl. assignments -->
+          <p class="week">Week 4:</p>
+          <p *ngIf="linkedAdapterNames.includes('Video Upload')" >Video - Adjectives I</p>
+          <p *ngIf="linkedAdapterNames.includes('Quiz Upload')">Quiz - Adjectives I</p>
+          <p *ngIf="linkedAdapterNames.includes('Flashcards')">Flashcard - Chapter IV</p>
+          <p *ngIf="linkedAdapterNames.includes('Matching Exercise')">Matching - Chapter IV</p>
+          <div class="line"></div>
+          <div class="statusCircleRed"></div>
+          <div class="line"></div>
+          <!-- Week 5 incl. assignments -->
+          <p class="week">Week 5:</p>
+          <p *ngIf="linkedAdapterNames.includes('Video Upload')" >Video - Pronunciation II</p>
+          <p *ngIf="linkedAdapterNames.includes('Quiz Upload')">Quiz - Pronunciation II</p>
+          <p *ngIf="linkedAdapterNames.includes('Flashcards')">Flashcard - Chapter V</p>
+          <p *ngIf="linkedAdapterNames.includes('Matching Exercise')">Matching - Chapter V</p>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>

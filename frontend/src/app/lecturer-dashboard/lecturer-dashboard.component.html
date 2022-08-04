@@ -1,0 +1,105 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="lecturerDashboard-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="lecturerDashboard-column">
+      <div class="courseSettings">
+        <!-- Title Header -->
+        <button type="button" class="btn btn-primary" (click)="toCourseConfig()">Course configuration</button>
+        <button type="button" class="btn btn-secondary students-view" routerLink="/student-dashboard/course/{{this.courseId}}">Students view</button>
+        <h1 class="courseTitle">{{ courseInfo?.courseName }}</h1>
+        <button type="button" class="btn btn-danger delete-course" (click)="delCourse()">Delete Course</button>
+      </div>
+      <table class="tableContent">
+        <tr class="tableTop">
+          <!-- Left Column -->
+          <td class="adapterColumn">
+            <!-- Create Content -->
+            <div class="adapterAction">
+              <h1>Create Content</h1>
+              <div class="adapterContent createContent" *ngFor="let adapter of contentAdapter">
+                <h2 class="createText">{{ adapter }}</h2>
+              </div>
+            </div>
+            <!-- Students Performance BarChart -->
+            <div class="studentPerformance">
+              <h1>Students Performance</h1>
+              <div class="chart">
+                <div>
+                  <!-- BarChart -->
+                  <div style="display: block">
+                    <canvas baseChart
+                            [data]="barChartData"
+                            [options]="barChartOptions"
+                            [plugins]="barChartPlugins"
+                            [type]="barChartType"
+                            (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)">
+                    </canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td rowspan="2">
+            <!-- Installed / Recommended Adapter -->
+            <div class="installedAdapter">
+              <h1>Installed Adapter</h1>
+              <!-- List of installed Adapter -->
+              <ul class="list-group adapterList" >
+                <li class="list-group-item" *ngFor="let adapter of installedAdapter">
+                  <p>{{ adapter }}</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/{{adapter}}" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+              </ul>
+              <h1 class="marginTop">Recommended Adapter</h1>
+              <!-- List of recommended Adapter -->
+              <ul class="list-group adapterList">
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Gamification')"><p>Gamification</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/gamification" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Video Upload')"><p>Video Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/video upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Quiz Upload')"><p>Quiz Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/quiz upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Course Timeline')"><p>Course Timeline</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/course timeline" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Interactive Chat')"><p>Interactive Chat</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Flashcards')"><p>Flashcards</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/flashcards" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Knowledge Progress')"><p>Knowledge Progress</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/knowledge progress" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Matching Exercise')"><p>Matching Exercise</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/matching exercise" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Group Assignments')"><p>Group Assignments</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Video Meeting')"><p>Video Meeting</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                </li>
+                <li class="list-group-item" *ngIf="!installedAdapter.includes('Advanced Notifications')"><p>Advanced Notifications</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                </li>
+              </ul>
+              <!-- Open course configuration -->
+              <button type="button" class="btn btn-primary marginTop" (click)="toCourseConfig()">Course configuration</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

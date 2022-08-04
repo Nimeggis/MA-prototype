@@ -1,0 +1,162 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="createCourse-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="createCourse-column">
+      <div class="divCreateCourse">
+        <!-- Title Header -->
+        <h1>Create course</h1>
+        <!-- Create Course Form -->
+        <form [formGroup]="checkoutForm" (ngSubmit)="submitCourse()">
+          <div class="form-row formRow">
+            <!----------- Course Name Field ----------->
+            <div class="form-group col-md-5 formElement">
+              <label for="courseName">Course name</label>
+              <input type="text" class="form-control" id="courseName" placeholder="Course name" formControlName="courseName">
+            </div>
+            <!----------- Study Area Field ----------->
+            <div class="form-group col-md-5 formElement">
+              <label for="inputState">Field of study</label>
+              <select id="inputState" #inputState class="form-control" (change)="onChange(inputState.value)" [(ngModel)]="inputSelect" formControlName="fieldofstudy">
+                <option value="choose">Choose...</option>
+                <option>Architektur</option>
+                <option>Bauingenieurwesen</option>
+                <option>Betriebswirtschaftslehre</option>
+                <option>Chemie</option>
+                <option>Geschichte</option>
+                <option>Informatik</option>
+                <option>Luft- und Raumfahrttechnik</option>
+                <option>Mathematik</option>
+                <option>Physik</option>
+                <option>Softwaretechnik</option>
+                <option>Sprachwissenschaft</option>
+                <option>Volkswirtschaftslehre</option>
+                <option>Wirtschaftswissenschaft</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row formRow">
+            <!----------- Course Description Field ----------->
+            <div class="form-group col-md-10 formElement">
+              <label for="courseDescription">Course description</label>
+              <textarea class="form-control" id="courseDescription" rows="3"
+                        placeholder="Course description" formControlName="courseDescription"></textarea>
+            </div>
+          </div>
+          <div class="form-row formRow">
+            <!----------- Course Start Date Field ----------->
+            <div class="form-group col-md-5 formElement">
+              <label for="courseStart">Course start date</label>
+              <input type="text" class="form-control" id="courseStart" placeholder="dd.mm.yyyy" formControlName="courseStart">
+            </div>
+            <!----------- Course End Date Field ----------->
+            <div class="form-group col-md-5 formElement">
+              <label for="courseEnd">Course end date</label>
+              <input type="text" class="form-control" id="courseEnd" placeholder="dd.mm.yyyy" formControlName="courseEnd">
+            </div>
+          </div>
+          <!-- Adapter Suggestions for "Sprachwissenschaft" -->
+          <div class="form-row formRow" [style.display]="displaySprachwissenschaft">
+            <div class="form-group col-md-8 formElement">
+              <label>Suggested adapters (based on your field of study)</label>
+              <ul class="list-group">
+                <li class="list-group-item course" (click)="clickEvent('Course Timeline')"><p>Course Timeline</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/course timeline" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item video" (click)="clickEvent('Video Upload')"><p>Video Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/video upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item quiz" (click)="clickEvent('Quiz Upload')"><p>Quiz Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/quiz upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item flashcards" (click)="clickEvent('Flashcards')"><p>Flashcards</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/flashcards" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item matching" (click)="clickEvent('Matching Exercise')"><p>Matching Exercise</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/matching exercise" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item gamification" (click)="clickEvent('Gamification')"><p>Gamification</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/gamification" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Adapter Suggestions for "Informatik" and "Softwaretechnik" -->
+          <div class="form-row formRow" [style.display]="displayInformatik">
+            <div class="form-group col-md-8 formElement">
+              <label>Suggested adapters (based on your field of study)</label>
+              <ul class="list-group">
+                <li class="list-group-item gamification" (click)="clickEvent('Gamification')"><p>Gamification</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/gamification" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item course" (click)="clickEvent('Course Timeline')"><p>Course Timeline</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/course timeline" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item quiz" (click)="clickEvent('Quiz Upload')"><p>Quiz Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/quiz upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item video" (click)="clickEvent('Video Upload')"><p>Video Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/video upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item disabled"><p>Group Assignments</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,0.3)'}">help</mat-icon>
+                </li>
+                <li class="list-group-item disabled"><p>Interactive Chat</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,0.3)'}">help</mat-icon>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- All Adapter List -->
+          <div class="form-row formRow">
+            <div class="form-group col-md-8 formElement">
+              <label>All adapters</label>
+              <ul class="list-group">
+                <li class="list-group-item gamification" #gamification (click)="clickEvent('Gamification')"><p>Gamification</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/gamification" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item video" #video (click)="clickEvent('Video Upload')"><p>Video Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/video upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item quiz" #quiz (click)="clickEvent('Quiz Upload')"><p>Quiz Upload</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/quiz upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item course" #course (click)="clickEvent('Course Timeline')"><p>Course Timeline</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/course timeline" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item disabled"><p>Interactive Chat</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,0.3)'}">help</mat-icon>
+                </li>
+                <li class="list-group-item flashcards" #flashcards (click)="clickEvent('Flashcards')"><p>Flashcards</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/flashcards" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item knowledge" #knowledge (click)="clickEvent('Knowledge Progress')"><p>Knowledge Progress</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/knowledge progress" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item matching" #matching (click)="clickEvent('Matching Exercise')"><p>Matching Exercise</p>
+                  <a routerLink="/adapter-overview/course/{{courseId}}/matching exercise" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                </li>
+                <li class="list-group-item disabled"><p>Group Assignments</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,0.3)'}">help</mat-icon>
+                </li>
+                <li class="list-group-item disabled"><p>Video Meeting</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,0.3)'}">help</mat-icon>
+                </li>
+                <li class="list-group-item disabled"><p>Advanced Notifications</p>
+                  <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,0.3)'}">help</mat-icon>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Submit Form -->
+          <button type="submit" class="btn btn-primary">Create course</button>
+        </form>
+      </div>
+    </td>
+  </tr>
+</table>

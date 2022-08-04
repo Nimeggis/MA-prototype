@@ -1,0 +1,135 @@
+.flashcardsAdapter-column {
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    padding-left: 280px;
+}
+
+.sidebar-column {
+    vertical-align: top;
+}
+
+.flashcardsAdapter-table {
+    margin-left: -2px;
+}
+
+.tableContent {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.tableTop {
+    vertical-align: baseline;
+}
+
+.configColumn {
+    width: 70%;
+}
+
+.configAction {
+    box-shadow: 0px 0px 5px 3px #2C388A;
+    background-color: rgba(44, 56, 138, .1);
+    margin: 5%;
+    padding: 20px 0px 20px 0px;
+    border-radius: 50px;
+}
+
+.correlationColumn {
+    box-shadow: 0px 0px 5px 3px #2C388A;
+    background-color: rgba(44, 56, 138, .1);
+    margin: 5%;
+    padding: 20px 0px 20px 0px;
+    border-radius: 50px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+.courseTitle {
+    text-align: center;
+    margin-top: -2.5em;
+}
+
+.adapterList {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 30px;
+}
+
+.adapter {
+    display: inline-flex;
+}
+
+.linkAdapter {
+    margin-left: auto;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+label {
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.linkIcon {
+    vertical-align: middle;
+}
+
+.formRow {
+    display: flex;
+    justify-content: center;
+}
+
+.formElement {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.dashPreview {
+    width: 100%;
+    height: 20em;
+    padding: 10px;
+    border: 5px solid #2C388A;
+    border-radius: 50px;
+}
+
+.editDash {
+    margin-bottom: 12px;
+}
+
+.gamificationConfig {
+    margin-top: 20px;
+}
+
+.courseConfig {
+    margin-top: 20px;
+}
+
+.knowledgeConfig {
+    margin-top: 20px;
+}
+
+.dashboardConfig {
+    margin-top: 20px;
+}
+
+.flashcard {
+    width: 70%;
+    height: 60%;
+    margin-left: 15%;
+    padding: 60px;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 1px 1px gray;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.vocabTranslation {
+    margin-top: 10px;
+}

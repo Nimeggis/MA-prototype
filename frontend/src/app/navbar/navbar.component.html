@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <!-- IT-REX Icon -->
+    <div class="container-icon">
+      <img src="../../assets/itrex.png" alt="" width="80" height="80" class="d-inline-block align-text-top itrex">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">IT-REX</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Navbar Menu-items -->
+    <!----------- MOCK VALUES ----------->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" (click)="redirect()">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="redirect()">Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="redirect()">Settings</a>
+      </li>
+    </ul>
+    <!-- Search bar -->
+    <div class="container-icon">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      <ul class="navbar-nav">
+        <!-- Show logged in user -->
+        <li class="nav-item">
+          <a class="nav-link nav-login disabled" aria-current="page" href="#">Logged in as {{username}}</a>
+        </li>
+      </ul>
+      <!-- Logout button -->
+      <button class="btn btn-outline-success" routerLink="/login">Logout</button>
+    </div>
+  </div>
+</nav>

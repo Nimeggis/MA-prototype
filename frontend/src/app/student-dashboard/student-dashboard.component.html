@@ -1,0 +1,153 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="studentDashboard-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="studentDashboard-column">
+      <!-- Title Header -->
+      <div class="courseSettings" [style.display]="this.textCenter" [style.text-align]="this.textAlign">
+        <button *ngIf="this.username=='lecturer'" type="button" class="btn btn-primary" (click)="toCourseConfig()">Course configuration</button>
+        <button *ngIf="this.username=='lecturer'" type="button" class="btn btn-secondary lecturer-view" routerLink="/lecturer-dashboard/course/{{this.courseId}}">Lecturers view</button>
+        <h1 class="courseTitle" [style.margin-top]="this.textTop">{{ courseInfo?.courseName }}</h1>
+        <button *ngIf="this.username=='lecturer'" type="button" class="btn btn-danger delete-course" (click)="delCourse()">Delete Course</button>
+      </div>
+      <!-- Dashboard Items -->
+      <div class="dashboardItems">
+        <!-- Widget Frames -->
+        <div class="contentWidget" *ngFor="let widget of adapterDash; let index = index" [ngClass]="{'contentLarge': largeWidgets.includes(index), 'contentSmall': smallWidgets.includes(index)}" (click)="openApp(widget.id)">
+          <div class="widgetHead" [ngClass]="{'studentTitle': this.username=='student'}">
+            <div class="spacer" *ngIf="this.username=='lecturer'"></div>
+            <h2 class="widgetTitle">{{widget.id}}</h2>
+            <div class="support" *ngIf="this.username=='lecturer'">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" class="config-edit">edit</mat-icon>
+              <mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon>
+            </div>
+          </div>
+          <!----------- Course Timeline Dasboard Widget ----------->
+          <div class="dashboardContent" *ngIf="widget.id=='Course Timeline'">
+            <div class="line"></div>
+            <div class="statusCircle"></div>
+            <p class="week">Week 5:</p>
+            <p>Video - Pronunciation II</p>
+            <p>Quiz - Pronunciation II</p>
+            <div class="line"></div>
+          </div>
+          <!----------- Gamification Dasboard Widget ----------->
+          <div class="dashboardContent" *ngIf="widget.id=='Gamification'">
+            <img src="../../assets/itrex.png" width="150" height="150">
+            <p><b>Score:</b> 1402</p>
+            <p><b>Rank:</b> 14</p>
+          </div>
+          <div class="dashboardContent" *ngIf="widget.id=='Knowledge Progress'">
+            <div>
+              <div>
+                <div class="pieChart">
+                  <canvas baseChart
+                    [data]="doughnutChartData"
+                    [type]="doughnutChartType">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!----------- Flashcards Dasboard Widget ----------->
+          <div class="dashboardContent" *ngIf="widget.id=='Flashcards'">
+            <div class="flashcard">
+              <h1>語言學</h1>
+              <h3>yǔ yán xué <mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" [ngStyle]="{'color':'rgba(44,56,138,.8)', 'vertical-align':'middle'}">volume_up</mat-icon></h3>
+            </div>
+            <div class="form-row formRow">
+              <div class="form-group col-md-6 formElement vocabTranslation">
+                <input type="text" class="form-control" placeholder="Enter translation">
+              </div>
+            </div>
+          </div>
+          <!----------- Matching Exercise Dasboard Widget ----------->
+          <div class="dashboardContent" *ngIf="widget.id=='Matching Exercise'">
+            <div class="matchingColumn">
+              <div class="matchingRow">
+                  <div class="chineseVocab">
+                      <p>語言學 <mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" [ngStyle]="{'color':'rgba(44,56,138,.8)'}">volume_up</mat-icon></p>
+                  </div>
+                  <div class="connectorLeft"></div>
+                  <div class="englishVocab">
+                    <div class="connectorRight"></div>
+                    <p>University</p>
+                  </div>
+              </div>
+              <div class="matchingRow">
+                  <div class="chineseVocab">
+                    <p>学生 <mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" [ngStyle]="{'color':'rgba(44,56,138,.8)'}">volume_up</mat-icon></p>
+                  </div>
+                  <div class="connectorLeft"></div>
+                  <div class="englishVocab">
+                    <div class="connectorRight"></div>
+                    <p>Student</p>
+                  </div>
+              </div>
+              <div class="matchingRow">
+                  <div class="chineseVocab">
+                    <p>大学 <mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" [ngStyle]="{'color':'rgba(44,56,138,.8)'}">volume_up</mat-icon></p>
+                  </div>
+                  <div class="connectorLeft"></div>
+                  <div class="englishVocab">
+                    <div class="connectorRight"></div>
+                    <p>Linguistic</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!----------- Quiz Upload Dasboard Widget ----------->
+          <div class="dashboardContent" *ngIf="widget.id=='Quiz Upload'">
+            <ul class="list-group quizList">
+              <li class="list-group-item quiz">
+                <p>60% - Pronunciation I</p>
+                <button type="button" class="btn btn-success linkQuiz">Continue Quiz</button>
+              </li>
+              <li class="list-group-item quiz">
+                <p>0% - Pronunciation II</p>
+                <button type="button" class="btn btn-success linkQuiz">Start Quiz</button>
+              </li>
+              <li class="list-group-item quiz">
+                <p>0% - Pronunciation III</p>
+                <button type="button" class="btn btn-success linkQuiz" disabled>Start Quiz</button>
+              </li>
+            </ul>
+          </div>
+          <!----------- Video Upload Dasboard Widget ----------->
+          <div class="dashboardContent" *ngIf="widget.id=='Video Upload'">
+            <ul class="list-group videoList">
+              <li class="list-group-item video">
+                <p>90% - Pronunciation I</p>
+                <button type="button" class="btn btn-success linkVideo">Continue Video</button>
+              </li>
+              <li class="list-group-item video">
+                <p>50% - Pronunciation II</p>
+                <button type="button" class="btn btn-success linkVideo">Continue Video</button>
+              </li>
+              <li class="list-group-item video">
+                <p>0% - Pronunciation III</p>
+                <button type="button" class="btn btn-success linkVideo" disabled>Start Video</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Footer incl. Quickstart Icons -->
+      <footer>
+        <div class="quickstart">
+          <h2 class="quickstartText">Quickstart:</h2>
+          <div class="quickstartApps">
+            <div class="quickApp" *ngFor="let adapter of adapterApps">
+              <p class="apps">{{adapter}}</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </td>
+  </tr>
+</table>

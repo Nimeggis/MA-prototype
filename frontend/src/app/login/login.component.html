@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <!-- Login Background -->
+    <div class="background"></div>
+    <div class="trex"></div>
+    <div class="loginArea">
+      <!-- Login Form -->
+      <form [formGroup]="checkoutForm" (ngSubmit)="login()">
+        <h1 class="h3 mb-3 fw-normal loginText">Login</h1>
+        <!----------- Username field ----------->
+        <div class="form-floating loginInput">
+          <input type="input" class="form-control" id="floatingInput" placeholder="Username" formControlName="username">
+          <label for="floatingInput">Username</label>
+        </div>
+        <!----------- Password field ----------->
+        <div class="form-floating loginInput">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                formControlName="password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <!----------- Remember me checkbox ----------->
+        <div class="checkbox mb-3">
+          <label class="loginText">
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <!-- Submit form and login -->
+        <button class="w-50 btn btn-lg btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

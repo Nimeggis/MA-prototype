@@ -1,0 +1,79 @@
+.adapterOverview-column {
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+    padding-top: 8%;
+    padding-bottom: 5%;
+    padding-left: 280px;
+}
+
+.sidebar-column {
+    vertical-align: top;
+}
+
+.adapterOverview-table {
+    margin-left: -2px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.textHeader {
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+.courseTitle {
+    margin-left: auto;
+}
+
+.tableContent {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.tableTop {
+    vertical-align: top;
+}
+
+.column {
+    width: 50%;
+}
+
+.infoBox {
+    box-shadow: 0px 0px 5px 3px #2C388A;
+    background-color: rgba(44, 56, 138, .1);
+    margin: 5%;
+    margin-top: 0%;
+    padding: 20px 0px 20px 0px;
+    border-radius: 50px;
+}
+
+.diagramBox {
+    margin-bottom: 5%;
+    margin-top: 0%;
+}
+
+.configBox {
+    box-shadow: 0px 0px 5px 3px #2C388A;
+    background-color: rgba(44, 56, 138, .1);
+    margin: 5%;
+    padding: 20px 0px 20px 0px;
+    border-radius: 50px;
+}
+
+.diagram {
+    width: 90%;
+}
+
+.configText {
+    width: 80%;
+    margin-left: 10%;
+    text-align: left;
+}

@@ -1,0 +1,142 @@
+<html>
+  <body>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark itrex-sidebar" style="width: 280px;">
+      <!-- SideBar Top Area -->
+      <!----------- MOCK VALUES ----------->
+      <ul class="nav nav-pills flex-column sidebar-top">
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Course Material
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#speedometer2"></use>
+            </svg>
+            Watch later
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg>
+            Favorites
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <!-- SideBar Course Area -->
+      <!----------- MOCK VALUES ----------->
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Course A
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#speedometer2"></use>
+            </svg>
+            Course B
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg>
+            Course C
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#grid"></use>
+            </svg>
+            Course D
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#people-circle"></use>
+            </svg>
+            Course E
+          </a>
+        </li>
+      </ul>
+      <!-- SideBar Admin Area -->
+      <!-- Go to Adapter Business Logic -->
+      <ul class="nav nav-pills flex-column mb-auto" [style.display]="devArea">
+        <li class="nav-item">
+          <h2>DEV</h2>
+          <a class="nav-link text-white" aria-current="page" routerLink="/course-adapter">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Course Adapter
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/flashcards-adapter">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Flashcards Adapter
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/gamification-adapter">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#speedometer2"></use>
+            </svg>
+            Gamification Adapter
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/knowledge-adapter">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg>
+            Knowledge Adapter
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/quiz-adapter">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#grid"></use>
+            </svg>
+            Quiz Adapter
+          </a>
+        </li>
+        <li>
+          <a class="nav-link text-white" routerLink="/video-adapter">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#people-circle"></use>
+            </svg>
+            Video Adapter
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <!-- SideBar Bottom Area -->
+      <!----------- MOCK VALUES ----------->
+      <div class="dropdown">
+        <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../assets/itrex.png" alt="" width="32" height="32" class="rounded-circle itrex-user me-2">
+          <strong>{{username}}12345</strong>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

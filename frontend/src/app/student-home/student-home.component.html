@@ -1,0 +1,114 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="studentHome-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="studentHome-column">
+      <!-- My courses area -->
+      <div class="myLectures">
+        <h1>My courses</h1>
+        <div class="divCourses">
+          <!-- MOCK QASD + SOA -->
+          <a><h2 class="courses" style="margin-top: 40%;">QASD</h2></a>
+          <a><h2 class="courses" style="margin-top: 40%;">SOA</h2></a>
+          <!-- Variable list of courses -->
+          <div class="divCourses" *ngFor="let course of courseList">
+            <a routerLink="/student-dashboard/course/{{course.id}}"><h2 class="courses" style="margin-top: 40%;">{{ course.courseName }}</h2></a>
+          </div>
+          <!-- Add course (Mock) -->
+          <a><h2 class="addCourse" style="margin-top: 40%;">+</h2><h2>Join course</h2></a>
+        </div>
+      </div>
+      <!-- Statistics area -->
+      <!-- MOCK additional statistics -->
+      <div class="statistics">
+        <h1>Statistics</h1>
+        <div class="row">
+          <!-- Tasks solved -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      Tasks solved this week
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tasks in total -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                    </div>
+                    <div class="row no-gutters align-items-center">
+                      <div class="col-auto">
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                      </div>
+                      <div class="col">
+                        <div class="progress progress-sm mr-2">
+                          <div class="progress-bar bg-info" role="progressbar"
+                               style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                               aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Open tasks -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                      Open tasks this week
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tasks in a BarChart -->
+        <div class="chart">
+          <div>
+            <div style="display: block">
+              <canvas baseChart
+                      [data]="barChartData"
+                      [options]="barChartOptions"
+                      [plugins]="barChartPlugins"
+                      [type]="barChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>

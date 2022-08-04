@@ -1,0 +1,51 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="lecturerHome-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="lecturerHome-column">
+      <!-- My courses area -->
+      <div class="myLectures">
+        <h1>My courses</h1>
+        <div class="divCourses">
+          <!-- MOCK PSE + MDSD -->
+          <a><h2 class="courses" style="margin-top: 40%;">PSE</h2></a>
+          <a><h2 class="courses" style="margin-top: 40%;">MDSD</h2></a>
+          <!-- Variable list of courses -->
+          <div class="divCourses" *ngFor="let course of courseList">
+            <a routerLink="/lecturer-dashboard/course/{{course.id}}"><h2 class="courses" style="margin-top: 40%;">{{ course.courseName }}</h2></a>
+          </div>
+          <!-- Create course -->
+          <a routerLink="/create-course"><h2 class="addCourse" style="margin-top: 40%;">+</h2><h2>Create course</h2></a>
+        </div>
+      </div>
+      <!-- Quickstart area -->
+      <!-- MOCK additional functions -->
+      <div class="divQuickstart">
+        <h1>Quickstart</h1>
+        <div class="quickstart">
+          <a><h2 class="quickstartText" style="margin-top: 40%;">Statistics</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 30%;">All courses</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 30%;">Call support</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 30%;">Feature Request</h2></a>
+        </div>
+        <div class="quickstart">
+          <a><h2 class="quickstartText" style="margin-top: 40%;">More</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 40%;">Functions</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 40%;">Placed</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 40%;">Here</h2></a>
+        </div>
+        <div class="quickstart">
+          <a><h2 class="quickstartText" style="margin-top: 40%;">More</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 40%;">Functions</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 40%;">Placed</h2></a>
+          <a><h2 class="quickstartText" style="margin-top: 40%;">Here</h2></a>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>

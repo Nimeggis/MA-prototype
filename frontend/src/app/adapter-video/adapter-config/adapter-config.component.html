@@ -1,0 +1,168 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="videoAdapter-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="videoAdapter-column">
+      <!-- Title Header -->
+      <div class="courseTitle">
+        <h1>{{ courseInfo?.courseName }}</h1>
+        <h2>Video Upload - Adapter Configuration</h2>
+    </div>      
+    <table class="tableContent">
+    <tr class="tableTop">
+      <!-- Configuration Column -->
+        <td class="configColumn">
+          <form [formGroup]="configForm" (ngSubmit)="submitConfig()">
+            <div class="configAction">
+                <h1>Configuration</h1>
+                <div class="videoConfig">
+                  <!----------- Main Configuration ----------->
+                  <h2>Video Upload Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label for="accessVideo">Watch previous video to access next</label>
+                      <select id="accessVideo" #accessVideo class="form-control" [(ngModel)]="accessVideoSelect" formControlName="accessVideo">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="skipVideo">Skip video possible</label>
+                      <select id="skipVideo" #skipVideo class="form-control" [(ngModel)]="skipVideoSelect" formControlName="skipVideo">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="pauseVideo">Allow to pause video</label>
+                      <select id="pauseVideo" #pauseVideo class="form-control" [(ngModel)]="pauseVideoSelect" formControlName="pauseVideo">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!----------- Course Timeline Configuration ----------->
+                <div class="courseConfig" *ngIf="linkedAdapter.includes('Course Timeline')">
+                  <h2>Course Timeline Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label>Max. # videos per period</label>
+                      <input type="text" class="form-control" placeholder="5">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Watch videos for completing period</label>
+                      <select id="inputState" #inputState class="form-control" >
+                        <option selected>Choose...</option>
+                        <option>true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!----------- Knowledge Progress Configuration ----------->
+                <div class="knowledgeConfig" *ngIf="linkedAdapter.includes('Knowledge Progress')">
+                  <h2>Knowledge Progress Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Influence of watching videos on knowledge (in %)</label>
+                      <input type="text" class="form-control" placeholder="60 (max. 100)">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Video lenght affects knowledge progress</label>
+                      <select id="inputState" #inputState class="form-control" >
+                        <option selected>Choose...</option>
+                        <option>true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Times a video need to be watched to successfully gained knowledge</label>
+                      <input type="text" class="form-control" placeholder="1">
+                    </div>
+                  </div>
+                </div>
+                <!----------- Gamification Configuration ----------->
+                <div class="gamificationConfig" *ngIf="linkedAdapter.includes('Gamification')">
+                  <h2>Gamification Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label>Points for watching a video</label>
+                      <input type="text" class="form-control" placeholder="50 (max. 100)">
+                    </div>
+                  </div>
+                </div>
+                <!-- Dashboard Integration -->
+                <div class="dashboardConfig">
+                  <h2>Student Dashboard</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-6 formElement">
+                      <label for="dashboard">Show Video Section in Student Dashboard</label>
+                      <select id="dashboard" #dashboard class="form-control" (change)="onChange(dashboard.value)" [(ngModel)]="dashboardSelect" formControlName="dashboard">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                        <div [style.display]="displayDash">
+                          <p>Preview: (Example)</p>
+                          <button type="button" class="btn btn-secondary editDash"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon">edit</mat-icon></button>                     
+                          <div class="dashPreview">
+                            <h2>Videos</h2>
+                            <ul class="list-group videoList">
+                              <li class="list-group-item video">
+                                <p>90% - Pronunciation I</p>
+                                <button type="button" class="btn btn-success linkVideo">Continue Video</button>
+                              </li>
+                              <li class="list-group-item video">
+                                <p>50% - Pronunciation II</p>
+                                <button type="button" class="btn btn-success linkVideo">Continue Video</button>
+                              </li>
+                              <li class="list-group-item video">
+                                <p>0% - Pronunciation III</p>
+                                <button type="button" class="btn btn-success linkVideo" disabled>Start Video</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Configuration</button>
+            </div>
+          </form>
+        </td>
+        <td>
+          <!-- Correlating Column -->
+          <div class="correlationColumn">
+            <h1>Correlating Adapters</h1>
+            <div class="linkedAdapter">
+              <!----------- Linked Adapters ----------->
+              <h2>Linked Adapters</h2>
+              <ul class="list-group adapterList">
+                <li class="list-group-item adapter" *ngFor="let adapter of linkedAdapter">
+                  <p>{{ adapter }}</p>
+                  <button type="button" class="btn btn-danger linkAdapter"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" (click)="delAdapter(adapter)">link_off</mat-icon></button>
+                </li>
+              </ul>
+            </div>
+            <div class="notLinkedAdapter">
+              <h2>Unlinked Adapters</h2>
+              <!----------- Unlinked Adapters ----------->
+              <ul class="list-group adapterList">
+                <li class="list-group-item adapter" *ngFor="let adapter of notLinkedAdapter">
+                  <p>{{ adapter }}</p>
+                  <button type="button" class="btn btn-success linkAdapter"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" (click)="addAdapter(adapter)">link</mat-icon></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>

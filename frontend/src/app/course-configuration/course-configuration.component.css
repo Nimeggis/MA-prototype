@@ -1,0 +1,96 @@
+.courseConfig-column {
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    padding-left: 280px;
+  }
+
+.courseConfig-table {
+    margin-left: -2px;
+}
+
+.sidebar-column {
+    vertical-align: top;
+  }
+
+.courseTitle {
+    text-align: center;
+    margin-top: -2.5em;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.tableContent {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.tableTop {
+    vertical-align: baseline;
+}
+
+.adapterColumn {
+    width: 70%;
+}
+
+.adapterAction {
+    box-shadow: 0px 0px 5px 3px #2C388A;
+    background-color: rgba(44, 56, 138, .1);
+    margin: 5%;
+    padding: 20px 0px 20px 0px;
+    border-radius: 50px;
+}
+
+.descriptionColumn {
+    box-shadow: 0px 0px 5px 3px #2C388A;
+    background-color: rgba(44, 56, 138, .1);
+    margin: 5%;
+    padding: 20px 0px 20px 0px;
+    border-radius: 50px;
+}
+
+.config-edit {
+    margin-left: 10px;
+}
+
+.adapterList {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.additionAdapter {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+
+.adapter {
+    display: inline-flex;
+}
+
+.adapterConfig {
+    margin-left: auto;
+}
+
+.isInstalled {
+    margin-left: 40%;
+    position: absolute;
+}
+
+.help {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.deleteAdapter {
+    margin-left: 10px;
+}

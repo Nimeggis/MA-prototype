@@ -1,0 +1,77 @@
+.createCourse-column {
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  padding-left: 280px;
+}
+
+.sidebar-column {
+  vertical-align: top;
+}
+
+.createCourse-table {
+  margin-left: -2px;
+}
+
+.divCreateCourse {
+  border: 3px solid #2C388A;
+  box-shadow: 0px 0px 2px 2px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  width: 80%;
+  margin-left: 10%;
+  padding: 20px 40px 20px 40px;
+  border-radius: 50px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+.formRow {
+  display: flex;
+  justify-content: center;
+}
+
+.formElement {
+  padding: 20px;
+}
+
+.formCenter {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+label {
+  font-size: large;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.list-group-item {
+  display: flex;
+}
+
+.help {
+  margin-left: auto;
+}
+
+p {
+  font-size: 13pt;
+  margin-bottom: auto;
+  padding-top: 2px;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.active {
+  z-index: 0;
+}

@@ -1,0 +1,30 @@
+nav {
+  background-color: #071B45 !important;
+  box-shadow: 0px 0px 5px 5px #071B45;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.itrex {
+  background-color: #F4F7F9;
+  border-radius: 50%;
+}
+
+.nav-link {
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+
+.nav-login {
+  color: white;
+  font-size: small;
+}
+
+.container-icon {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+}

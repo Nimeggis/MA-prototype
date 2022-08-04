@@ -1,0 +1,129 @@
+.lecturerDashboard-column {
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 8%;
+  padding-bottom: 5%;
+  padding-left: 280px;
+}
+
+.sidebar-column {
+  vertical-align: top;
+}
+
+.lecturerDashboard-table {
+  margin-left: -2px;
+}
+
+.courseSettings {
+  text-align: left;
+  width: 86%;
+  margin-left: 8%;
+  display: flex;
+}
+
+.tableContent {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.adapterColumn {
+  width: 70%;
+}
+
+.adapterAction {
+  box-shadow: 0px 0px 5px 3px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  margin: 5%;
+  padding: 20px 0px 20px 0px;
+  border-radius: 50px;
+}
+
+.studentPerformance {
+  box-shadow: 0px 0px 5px 3px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  margin: 5%;
+  padding: 20px 0px 20px 0px;
+  border-radius: 50px;
+}
+
+.installedAdapter {
+  box-shadow: 0px 0px 5px 3px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  margin: 5%;
+  padding: 20px 0px 20px 0px;
+  border-radius: 50px;
+}
+
+.tableTop {
+  vertical-align: baseline;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+p {
+  font-size: 13pt;
+  margin-bottom: auto;
+  padding-top: 2px;
+}
+
+.adapterList {
+  width: 80%;
+  margin-left: 10%;
+}
+
+li {
+  display: flex;
+}
+
+.help {
+  margin-left: auto;
+}
+
+.marginTop {
+  margin-top: 30px;
+}
+
+.chart {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
+}
+
+.students-view {
+  margin-left: 10px;
+}
+
+.delete-course {
+  margin-left: auto;
+}
+
+.courseTitle {
+  margin-left: auto;
+}
+
+.adapterContent {
+  display: inline-flex;
+}
+
+.createContent {
+  width: auto;
+  margin: 10px;
+  padding: 25px;
+  border: 5px solid #071B45;
+  color: #071B45;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.createContent:hover {
+  box-shadow: 0px 0px 2px 2px #071B45;
+}
+
+.createText {
+  vertical-align: middle;
+  margin-bottom: 0px;
+}

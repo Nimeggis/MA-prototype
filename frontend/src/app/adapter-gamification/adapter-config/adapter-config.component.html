@@ -1,0 +1,174 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="gamificationAdapter-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="gamificationAdapter-column">
+      <!-- Title Header -->
+      <div class="courseTitle">
+        <h1>{{ courseInfo?.courseName }}</h1>
+        <h2>Gamification - Adapter Configuration</h2>
+    </div>      
+    <table class="tableContent">
+    <tr class="tableTop">
+      <!-- Configuration Column -->
+        <td class="configColumn">
+          <form [formGroup]="configForm" (ngSubmit)="submitConfig()">
+            <div class="configAction">
+                <h1>Configuration</h1>
+                <div class="gamificationConfig">
+                  <!----------- Main Configuration ----------->
+                  <h2>Gamification Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label>Points between Milestones</label>
+                      <input type="text" class="form-control" placeholder="{{this.configInfo?.milestone}}" formControlName="milestone">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="point">Point reset</label>
+                      <select id="point" #point class="form-control" [(ngModel)]="pointSelect" formControlName="point_reset">
+                        <option value="twoweeks">2 weeks</option>
+                        <option value="fourweeks">4 weeks</option>
+                        <option value="eightweeks">8 weeks</option>
+                        <option value="never">never</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="scoreboard">Student scoreboard</label>
+                      <select id="scoreboard" #scoreboard class="form-control" [(ngModel)]="scoreboardSelect" formControlName="scoreboard">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!----------- Flashcard Configuration ----------->
+                <div class="flashcardsConfig" *ngIf="linkedAdapter.includes('Flashcards')">
+                  <h2>Flashcard Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label>Points for correct answer</label>
+                      <input type="text" class="form-control" placeholder="50 (max. 100)">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label >Negative points for wrong answer</label>
+                      <input type="text" class="form-control" placeholder="25 (max. 100)">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Show Flashcard streak</label>
+                      <select id="inputState" #inputState class="form-control" >
+                        <option selected>Choose...</option>
+                        <option>true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!----------- Course Timeline Configuration ----------->
+                <div class="courseConfig" *ngIf="linkedAdapter.includes('Course Timeline')">
+                  <h2>Course Timeline Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label for="points">Full points when solving in time</label>
+                      <select id="points" #points class="form-control">
+                        <option selected>Choose...</option>
+                        <option >true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label>Negative points for late submission</label>
+                      <input type="text" class="form-control" placeholder="25 (max. 100)">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Show score evolvement in timeline</label>
+                      <select id="inputState" #inputState class="form-control" >
+                        <option selected>Choose...</option>
+                        <option>true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!----------- Video Upload Configuration ----------->
+                <div class="videoConfig" *ngIf="linkedAdapter.includes('Video Upload')">
+                  <h2>Video Upload Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label>Points for watching a video</label>
+                      <input type="text" class="form-control" placeholder="50 (max. 100)">
+                    </div>
+                  </div>
+                </div>
+                <!----------- Quiz Upload Configuration ----------->
+                <div class="quizConfig" *ngIf="linkedAdapter.includes('Quiz Upload')">
+                  <h2>Quiz Upload Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label>Points for solving a quiz</label>
+                      <input type="text" class="form-control" placeholder="50 (max. 100)">
+                    </div>
+                  </div>
+                </div>
+                <!-- Dashboard Integration -->
+                <div class="dashboardConfig">
+                  <h2>Student Dashboard</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-6 formElement">
+                      <label for="dashboard">Show Gamification in Student Dashboard</label>
+                      <select id="dashboard" #dashboard class="form-control" (change)="onChange(dashboard.value)" [(ngModel)]="dashboardSelect" formControlName="dashboard">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                        <div [style.display]="displayDash">
+                          <p>Preview: (Example)</p>
+                          <button type="button" class="btn btn-secondary editDash"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon">edit</mat-icon></button>                     
+                          <div class="dashPreview">
+                            <h2>Gamification</h2>
+                            <img src="../../assets/itrex.png" width="120" height="120">
+                            <p><b>Score:</b> 1402</p>
+                            <p><b>Rank:</b> 14</p>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Configuration</button>
+            </div>
+          </form>
+        </td>
+        <td>
+          <!-- Correlating Column -->
+          <div class="correlationColumn">
+            <h1>Correlating Adapters</h1>
+            <div class="linkedAdapter">
+              <!----------- Linked Adapters ----------->
+              <h2>Linked Adapters</h2>
+              <ul class="list-group adapterList">
+                <li class="list-group-item adapter" *ngFor="let adapter of linkedAdapter">
+                  <p>{{ adapter }}</p>
+                  <button type="button" class="btn btn-danger linkAdapter"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" (click)="delAdapter(adapter)">link_off</mat-icon></button>
+                </li>
+              </ul>
+            </div>
+            <div class="notLinkedAdapter">
+              <!----------- Unlinked Adapters ----------->
+              <h2>Unlinked Adapters</h2>
+              <ul class="list-group adapterList">
+                <li class="list-group-item adapter" *ngFor="let adapter of notLinkedAdapter">
+                  <p>{{ adapter }}</p>
+                  <button type="button" class="btn btn-success linkAdapter"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" (click)="addAdapter(adapter)">link</mat-icon></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>

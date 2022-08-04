@@ -1,0 +1,86 @@
+.courseAdapter-column {
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  padding-left: 280px;
+}
+
+.sidebar-column {
+  vertical-align: top;
+}
+
+.courseAdapter-table {
+  margin-left: -2px;
+}
+
+.timelineFrame {
+  box-shadow: 0px 0px 5px 3px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  width: 50%;
+  margin-left: 25%;
+  padding: 20px 0px 20px 0px;
+  border-radius: 50px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+
+.courseTitle {
+  text-align: center;
+  margin-top: -2.5em;
+}
+
+p {
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.timeline{
+  width: 86%;
+  margin: 2em 0em 0em 7%;
+}
+
+.line {
+  width: 0px;
+  height: 2.3em;
+  margin-left: calc(50% - .2em);
+  border: 2px solid rgba(33, 37, 41, .5);
+}
+
+.statusCircleGreen {
+  width: 5em;
+  height: 5em;
+  margin-left: calc(50% - 2.5em);
+  border: 5px solid rgba(0, 186, 55, 1);
+  background-color: rgba(94, 196, 124, .5);
+  border-radius: 50px;
+}
+
+.statusCircleGreenRed {
+  width: 5em;
+  height: 5em;
+  margin-left: calc(50% - 2.5em);
+  border: 5px solid rgba(237, 47, 47, 1);
+  background-color: rgba(94, 196, 124, .5);
+  border-radius: 50px;
+}
+
+.statusCircleRed {
+  width: 5em;
+  height: 5em;
+  margin-left: calc(50% - 2.5em);
+  border: 5px solid rgba(237, 47, 47, 1);
+  background-color: rgba(249, 139, 139, 1);
+  border-radius: 50px;
+}
+
+.week {
+  font-weight: bold;
+}

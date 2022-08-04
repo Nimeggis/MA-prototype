@@ -1,0 +1,118 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="courseConfig-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="courseConfig-column">
+        <!-- Title Header -->
+        <div class="courseTitle">
+            <h1>{{ courseInfo?.courseName }}</h1>
+            <h2>Course Configuration</h2>
+        </div>      
+        <table class="tableContent">
+            <tr class="tableTop">
+                <!-- Adapter List Column -->
+                <td class="adapterColumn">
+                    <div class="adapterAction">
+                        <h1>Course Adapter</h1>
+                        <ul class="list-group adapterList">
+                            <!-- Installed Adapter List -->
+                            <li class="list-group-item adapter" *ngFor="let adapter of installedAdapter">
+                                <p>{{ adapter }}</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/{{adapter}}" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>installed</i></p>
+                                <button type="button" class="btn btn-success adapterConfig" (click)="openConfig(''+adapter)">Adapter configuration</button>
+                                <button type="button" class="btn btn-danger deleteAdapter" (click)="delAdapter(''+adapter)"><mat-icon aria-hidden="false" aria-label="Example home icon" class="config-delete">delete</mat-icon></button>
+                            </li>
+                        </ul>
+                        <!-- Not Installed Adapter List -->
+                        <ul class="list-group additionAdapter">
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Gamification')">
+                                <p>Gamification</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/gamification" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Gamification')">Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Video Upload')">
+                                <p>Video Upload</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/video upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Video Upload')">Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Quiz Upload')">
+                                <p>Quiz Upload</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/quiz upload" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Quiz Upload')">Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Course Timeline')">
+                                <p>Course Timeline</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/course timeline" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Course Timeline')">Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Interactive Chat')">
+                                <p>Interactive Chat</p>
+                                <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Interactive Chat')" disabled>Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Flashcards')">
+                                <p>Flashcards</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/flashcards" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Flashcards')">Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Knowledge Progress')">
+                                <p>Knowledge Progress</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/knowledge progress" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig"  (click)="addAdapter('Knowledge Progress')">Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Matching Exercise')">
+                                <p>Matching Exercise</p>
+                                <a routerLink="/adapter-overview/course/{{courseId}}/matching exercise" class="help"><mat-icon [ngStyle]="{'color':'rgba(44,56,138,1)'}">help</mat-icon></a>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig"  (click)="addAdapter('Matching Exercise')">Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Group Assignments')">
+                                <p>Group Assignments</p>
+                                <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Group Assignments')" disabled>Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Video Meeting')">
+                                <p>Video Meeting</p>
+                                <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Video Meeting')" disabled>Install</button>
+                            </li>
+                            <li class="list-group-item adapter" *ngIf="!installedAdapter.includes('Advanced Notifications')">
+                                <p>Advanced Notifications</p>
+                                <mat-icon class="help" [ngStyle]="{'color':'rgba(44,56,138,.5)'}">help</mat-icon>
+                                <p class="isInstalled"><i>not installed</i></p>
+                                <button type="button" class="btn btn-primary adapterConfig" (click)="addAdapter('Advanced Notifications')" disabled>Install</button>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <!-- Course description -->
+                    <div class="descriptionColumn">
+                        <h1>Course Information<mat-icon aria-hidden="false" aria-label="Example home icon" class="config-edit">edit</mat-icon></h1>
+                        <p><i>Course name:</i> {{ courseInfo?.courseName }}</p>
+                        <p><i>Course description:</i> {{ courseInfo?.courseDescription }}</p>
+                        <p><i>Field of Study:</i> {{ courseInfo?.fieldofstudy }}</p>
+                        <p><i>Semester:</i> Summer term 2022</p>
+                        <p><i>Number of Students:</i> 83</p>
+                    </div>
+                </td>
+              </tr>
+        </table>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,101 @@
+.lecturerHome-column {
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  padding-left: 280px;
+}
+
+.sidebar-column {
+  vertical-align: top;
+}
+
+.lecturerHome-table {
+  margin-left: -2px;
+}
+
+.divCourses {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.divCourses > a {
+  margin: 10px;
+  padding: 25px;
+  border: 5px solid #071B45;
+  color: #071B45;
+  border-radius: 50px;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.divCourses > a:hover {
+  box-shadow: 0px 0px 2px 2px #071B45;
+}
+
+.quickstart {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: 5%;
+  width: 90%;
+}
+
+.quickstart > a {
+  margin: 10px;
+  padding: 25px;
+  border: 5px solid #071B45;
+  color: #071B45;
+  border-radius: 50px;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.quickstart > a:hover {
+  box-shadow: 0px 0px 2px 2px #071B45;
+}
+
+.courses {
+  font-size: 24pt;
+}
+
+.quickstartText {
+  font-size: 24pt;
+}
+
+.addCourse {
+  font-size: 50pt !important;
+}
+
+.myLectures {
+  border: 3px solid #2C388A;
+  box-shadow: 0px 0px 2px 2px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  width: 80%;
+  margin-left: 10%;
+  padding: 20px 0px 20px 0px;
+  border-radius: 50px;
+}
+
+.divQuickstart {
+  margin-top: 50px;
+  height: 1000px;
+  border: 3px solid #2C388A;
+  box-shadow: 0px 0px 2px 2px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  width: 80%;
+  margin-left: 10%;
+  padding: 20px 0px 20px 0px;
+  border-radius: 50px;
+}
+
+h1 {
+  font-weight: bold;
+}

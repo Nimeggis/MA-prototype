@@ -1,0 +1,385 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="adapterOverview-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="adapterOverview-column">
+      <!-- Title Header -->
+        <div class="courseTitle">
+            <h1>{{ courseInfo?.courseName }}</h1>
+            <h2>{{ adapterInfo?.adapterName }} - Adapter Overview</h2>
+        </div>
+        <table class="tableContent">
+          <tr class="tableTop">
+            <!-- Configuration Possibilities Column -->
+            <td class="column">
+              <div class="configBox">
+                <h2>Configuration Possibilities</h2>
+                <!-- Course Timeline Configuration -->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Course Timeline'">
+                  <!----------- Main Configuration Possibilities ----------->
+                  <p class="textHeader">Course Timeline Configuration <i>(this Adapter)</i></p>
+                  <ul>
+                    <li><p>Period length</p></li>
+                    <li><p>Period start day</p></li>
+                    <li><p>Warn students when running late</p></li>
+                  </ul>
+                  <!----------- Gamification Possibilities ----------->
+                  <p class="textHeader">Gamification Configuration</p>
+                  <ul>
+                    <li><p>Full points when solving in time</p></li>
+                    <li><p>Negative points for late submission</p></li>
+                    <li><p>Score evolvement in timeline</p></li>
+                  </ul>
+                  <!----------- Flashcards Possibilities ----------->
+                  <p class="textHeader">Flashcard Configuration</p>
+                  <ul>
+                    <li><p>Chapter-based Vocabulary</p></li>
+                    <li><p>Vocabulary deadline</p></li>
+                  </ul>
+                  <!----------- Knowledge Progress Possibilities ----------->
+                  <p class="textHeader">Knowledge Progress Configuration</p>
+                  <ul>
+                    <li><p>Course goal for progress</p></li>
+                    <li><p>Late submission affect progress</p></li>
+                  </ul>
+                  <!----------- Quiz Upload Possibilities ----------->
+                  <p class="textHeader">Quiz Upload Configuration</p>
+                  <ul>
+                    <li><p>Max. # quizzes per period</p></li>
+                    <li><p>Solve quiz for completing period</p></li>
+                  </ul>
+                  <!----------- Video Upload Possibilities ----------->
+                  <p class="textHeader">Video Upload Configuration</p>
+                  <ul>
+                    <li><p>Max. # videos per period</p></li>
+                    <li><p>Watch videos for completing period</p></li>
+                  </ul>
+                </div>
+                <!-- Flashcards Configuration -->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Flashcards'">
+                  <!----------- Main Configuration Possibilities ----------->
+                  <p class="textHeader">Flashcards Configuration <i>(this Adapter)</i></p>
+                  <ul>
+                    <li><p>Time per Flashcard (in seconds)</p></li>
+                    <li><p>Days until repetition</p></li>
+                    <li><p>Hints possible</p></li>
+                  </ul>
+                  <!----------- Gamification Possibilities ----------->
+                  <p class="textHeader">Gamification Configuration</p>
+                  <ul>
+                    <li><p>Points for correct answer</p></li>
+                    <li><p>Negative points for wrong answer</p></li>
+                    <li><p>Show Flashcard streak</p></li>
+                  </ul>
+                  <!----------- Course Timeline Possibilities ----------->
+                  <p class="textHeader">Course Timeline Configuration</p>
+                  <ul>
+                    <li><p>Chapter-based Vocabulary</p></li>
+                    <li><p>Vocabulary deadline</p></li>
+                  </ul>
+                  <!----------- Knowledge Progress Possibilities ----------->
+                  <p class="textHeader">Knowledge Progress Configuration</p>
+                  <ul>
+                    <li><p># of correctly answered Flashcards until it is learned "sucessfully"</p></li>
+                  </ul>
+                </div>
+                <!-- Gamification Configuration -->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Gamification'">
+                  <p class="textHeader">Gamification Configuration <i>(this Adapter)</i></p>
+                  <ul>
+                    <li><p>Points between Milestones</p></li>
+                    <li><p>Point reset</p></li>
+                    <li><p>Student scoreboard</p></li>
+                  </ul>
+                  <!----------- Flashcards Possibilities ----------->
+                  <p class="textHeader">Flashcards Configuration</p>
+                  <ul>
+                    <li><p>Points for correct answer</p></li>
+                    <li><p>Negative points for wrong answer</p></li>
+                    <li><p>Show Flashcard streak</p></li>
+                  </ul>
+                  <!----------- Course Timeline Possibilities ----------->
+                  <p class="textHeader">Course Timeline Configuration</p>
+                  <ul>
+                    <li><p>Full points when solving in time</p></li>
+                    <li><p>Negative points for late submission</p></li>
+                    <li><p>Show score evolvement in timeline</p></li>
+                  </ul>
+                  <!----------- Quiz Upload Possibilities ----------->
+                  <p class="textHeader">Quiz Upload Configuration</p>
+                  <ul>
+                    <li><p>Points for solving a quiz</p></li>
+                  </ul>
+                  <!----------- Video Upload Possibilities ----------->
+                  <p class="textHeader">Video Upload Configuration</p>
+                  <ul>
+                    <li><p>Points for watching a video</p></li>
+                  </ul>
+                </div>
+                <!-- Knowledge Progress Configuration -->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Knowledge Progress'">
+                  <p class="textHeader">Knowledge Progress Configuration <i>(this Adapter)</i></p>
+                  <ul>
+                    <li><p>Color for finished progress</p></li>
+                    <li><p>Color for in progress</p></li>
+                    <li><p>Color for upcoming progress</p></li>
+                  </ul>
+                  <!----------- Course Timeline Possibilities ----------->
+                  <p class="textHeader">Course Timeline Configuration</p>
+                  <ul>
+                    <li><p>Course goal for progress</p></li>
+                    <li><p>Late submission affect progress</p></li>
+                  </ul>
+                  <!----------- Flashcards Possibilities ----------->
+                  <p class="textHeader">Flashcards Configuration</p>
+                  <ul>
+                    <li><p># of correctly answered Flashcards until it is learned "sucessfully"</p></li>
+                  </ul>
+                  <!----------- Quiz Upload Possibilities ----------->
+                  <p class="textHeader">Quiz Upload Configuration</p>
+                  <ul>
+                    <li><p>Influence of solving quizzes on knowledge (in %)</p></li>
+                    <li><p>Times a quiz needs to be solved to successfully gained knowledge</p></li>
+                  </ul>
+                  <!----------- Video Upload Possibilities ----------->
+                  <p class="textHeader">Video Upload Configuration</p>
+                  <ul>
+                    <li><p>Influence of watching videos on knowledge (in %)</p></li>
+                    <li><p>Video lenght affects knowledge progress</p></li>
+                    <li><p>Times a video need to be watched to successfully gained knowledge</p></li>
+                  </ul>
+                </div>
+                <!-- Quiz Upload Configuration -->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Quiz Upload'">
+                  <p class="textHeader">Quiz Upload Configuration <i>(this Adapter)</i></p>
+                  <ul>
+                    <li><p>Solve previous quiz to access next</p></li>
+                    <li><p>Skip quiz possible</p></li>
+                    <li><p>Hints possible</p></li>
+                  </ul>
+                  <!----------- Course Timeline Possibilities ----------->
+                  <p class="textHeader">Course Timeline Configuration</p>
+                  <ul>
+                    <li><p>Max. # quizzes per period</p></li>
+                    <li><p>Solve quiz for completing period</p></li>
+                  </ul>
+                  <!----------- Knowledge Progress Possibilities ----------->
+                  <p class="textHeader">Knowledge Progress Configuration</p>
+                  <ul>
+                    <li><p>Influence of solving quizzes on knowledge (in %)</p></li>
+                    <li><p>Times a quiz needs to be solved to successfully gained knowledge</p></li>
+                  </ul>
+                  <!----------- Gamification Possibilities ----------->
+                  <p class="textHeader">Gamification Configuration</p>
+                  <ul>
+                    <li><p>Points for solving a quiz</p></li>
+                  </ul>
+                </div>
+                <!-- Video Upload Configuration -->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Video Upload'">
+                  <p class="textHeader">Video Upload Configuration <i>(this Adapter)</i></p>
+                  <ul>
+                    <li><p>Watch previous video to access next</p></li>
+                    <li><p>Skip video possible</p></li>
+                    <li><p>Allow to pause video</p></li>
+                  </ul>
+                  <!----------- Course Timeline Possibilities ----------->
+                  <p class="textHeader">Course Timeline Configuration</p>
+                  <ul>
+                    <li><p>Max. # videos per period</p></li>
+                    <li><p>Watch videos for completing period</p></li>
+                  </ul>
+                  <!----------- Knowledge Progress Possibilities ----------->
+                  <p class="textHeader">Knowledge Progress Configuration</p>
+                  <ul>
+                    <li><p>Influence of watching videos on knowledge (in %)</p></li>
+                    <li><p>Video lenght affects knowledge progress</p></li>
+                    <li><p>Times a video need to be watched to successfully gained knowledge</p></li>
+                  </ul>
+                  <!----------- Gamification Possibilities ----------->
+                  <p class="textHeader">Gamification Configuration</p>
+                  <ul>
+                    <li><p>Points for watching a video</p></li>
+                  </ul>
+                </div>
+                <!-- Matching Exercise Configuration -->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Matching Exercise'">
+                  <p class="textHeader">Matching Exercise Configuration <i>(this Adapter)</i></p>
+                  <ul>
+                    <li><p>Time per Matching (in seconds)</p></li>
+                    <li><p>Matching layout</p></li>
+                    <li><p>Hints possible</p></li>
+                  </ul>
+                  <!----------- Gamification Possibilities ----------->
+                  <p class="textHeader">Gamification Configuration</p>
+                  <ul>
+                    <li><p>Points for correct answer</p></li>
+                    <li><p>Negative points for wrong answer</p></li>
+                    <li><p>Show Matching streak</p></li>
+                  </ul>
+                  <!----------- Course Timeline Possibilities ----------->
+                  <p class="textHeader">Course Timeline Configuration</p>
+                  <ul>
+                    <li><p>Chapter-based Vocabulary</p></li>
+                    <li><p>Vocabulary deadline</p></li>
+                  </ul>
+                  <!----------- Knowledge Progress Possibilities ----------->
+                  <p class="textHeader">Knowledge Progress Configuration</p>
+                  <ul>
+                    <li><p># of correctly matched Vocabulary until it is learned "sucessfully"</p></li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+            <td class="column">
+              <!-- Configuration Diagrams -->
+              <div class="diagramBox">
+                <img src="../../assets/CourseRelations.png" class="diagram" *ngIf="adapterInfo?.adapterName == 'Course Timeline'">
+                <img src="../../assets/FlashcardsRelations.png" class="diagram" *ngIf="adapterInfo?.adapterName == 'Flashcards'">
+                <img src="../../assets/GamificationRelations.png" class="diagram" *ngIf="adapterInfo?.adapterName == 'Gamification'">
+                <img src="../../assets/KnowledgeRelations.png" class="diagram" *ngIf="adapterInfo?.adapterName == 'Knowledge Progress'">
+                <img src="../../assets/QuizRelations.png" class="diagram" *ngIf="adapterInfo?.adapterName == 'Quiz Upload'">
+                <img src="../../assets/VideoRelations.png" class="diagram" *ngIf="adapterInfo?.adapterName == 'Video Upload'">
+                <img src="../../assets/MatchingRelations.png" class="diagram" *ngIf="adapterInfo?.adapterName == 'Matching Exercise'">
+              </div>
+              <!-- Adapter Usage -->
+              <div class="infoBox">
+                <h2>Adapter Usage</h2>
+                <!----------- Course Timeline Information ----------->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Course Timeline'">
+                  <p class="textHeader">This Adapter provides the possibility to structure the course and to plan and organize uploaded content.</p>
+                  <p class="textHeader">Adapter Information</p>
+                  <ul>
+                    <li><p>Content Creation <b>not possible</b></p></li>
+                    <li><p>Dashboard Widget <b>possible</b></p></li>
+                    <li><p>Adapter Standalone <b>possible</b></p></li>
+                  </ul>
+                  <!----------- Functionality Possibilities ----------->
+                  <p class="textHeader">Functionality</p>
+                  <ul>
+                    <li><p>Structure course in chapter and weeks</p></li>
+                    <li><p>Assign elements to according weeks</p></li>
+                    <li><p>Shows students when running late</p></li>
+                    <li><p>Marks already learned elements as done</p></li>
+                  </ul>
+                </div>
+                <!----------- Flashcards Information ----------->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Flashcards'">
+                  <p class="textHeader">This Adapter provides students a repetitive learning style, that they have to learn and repeat already learned material to improve in the course.</p>
+                  <p class="textHeader">Adapter Information</p>
+                  <ul>
+                    <li><p>Content Creation <b>possible</b></p></li>
+                    <li><p>Dashboard Widget <b>possible</b></p></li>
+                    <li><p>Adapter Standalone <b>possible</b></p></li>
+                  </ul>
+                  <!----------- Functionality Possibilities ----------->
+                  <p class="textHeader">Functionality</p>
+                  <ul>
+                    <li><p>Create Flashcards for Vocabulary</p></li>
+                    <li><p>Repeat already learned Flashcards</p></li>
+                    <li><p>Gives hints for better understanding</p></li>
+                    <li><p>Create vocabulary pool</p></li>
+                  </ul>
+                </div>
+                <!----------- Gamification Information ----------->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Gamification'">
+                  <p class="textHeader">This Adapter provides a Gamification system for the students, that they become more motivated for the course.</p>
+                  <p class="textHeader">Adapter Information</p>
+                  <ul>
+                    <li><p>Content Creation <b>not possible</b></p></li>
+                    <li><p>Dashboard Widget <b>possible</b></p></li>
+                    <li><p>Adapter Standalone <b>not possible</b></p></li>
+                  </ul>
+                  <!----------- Functionality Possibilities ----------->
+                  <p class="textHeader">Functionality</p>
+                  <ul>
+                    <li><p>Motivate students with scoring system</p></li>
+                    <li><p>Competitive mode between students incl. scoreboard</p></li>
+                    <li><p>Receive points for working on topics</p></li>
+                    <li><p>Increase motivation through Gamification</p></li>
+                  </ul>
+                </div>
+                <!----------- Knowledge Progress Information ----------->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Knowledge Progress'">
+                  <p class="textHeader">This Adapter provides students special statistics about their performance in the course as well as details about areas where they can improve themself.</p>
+                  <p class="textHeader">Adapter Information</p>
+                  <ul>
+                    <li><p>Content Creation <b>not possible</b></p></li>
+                    <li><p>Dashboard Widget <b>possible</b></p></li>
+                    <li><p>Adapter Standalone <b>possible</b></p></li>
+                  </ul>
+                  <!----------- Functionality Possibilities ----------->
+                  <p class="textHeader">Functionality</p>
+                  <ul>
+                    <li><p>Show students current learning progress</p></li>
+                    <li><p>Present deficits and strenght in knowledge</p></li>
+                    <li><p>Highlight improvement areas</p></li>
+                    <li><p>Set knowledge progress in relation to course material</p></li>
+                  </ul>
+                </div>
+                <!----------- Quiz Information ----------->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Quiz Upload'">
+                  <p class="textHeader">This Adapter provides the possibility to upload any kind of quizzes.</p>
+                  <p class="textHeader">Adapter Information</p>
+                  <ul>
+                    <li><p>Content Creation <b>possible</b></p></li>
+                    <li><p>Dashboard Widget <b>possible</b></p></li>
+                    <li><p>Adapter Standalone <b>possible</b></p></li>
+                  </ul>
+                  <!----------- Functionality Possibilities ----------->
+                  <p class="textHeader">Functionality</p>
+                  <ul>
+                    <li><p>Upload Quizzes and offer them to students</p></li>
+                    <li><p>Create a quiz pool for recurring questions</p></li>
+                    <li><p>Choose different kind of quizzes</p></li>
+                    <li><p>Provide hints to help understanding quiz material</p></li>
+                  </ul>
+                </div>
+                <!----------- Video Information ----------->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Video Upload'">
+                  <p class="textHeader">This Adapter provides the possibility to upload any kind of videos.</p>
+                  <p class="textHeader">Adapter Information</p>
+                  <ul>
+                    <li><p>Content Creation <b>possible</b></p></li>
+                    <li><p>Dashboard Widget <b>possible</b></p></li>
+                    <li><p>Adapter Standalone <b>possible</b></p></li>
+                  </ul>
+                  <!----------- Functionality Possibilities ----------->
+                  <p class="textHeader">Functionality</p>
+                  <ul>
+                    <li><p>Upload Videos and offer them to students</p></li>
+                    <li><p>Create a video pool for recurring questions</p></li>
+                    <li><p>Create multiple videos to a specific topic in a group</p></li>
+                    <li><p>Provide hints to help understanding video material</p></li>
+                  </ul>
+                </div>
+                <!----------- Matching Exercise Information ----------->
+                <div class="configText" *ngIf="adapterInfo?.adapterName == 'Matching Exercise'">
+                  <p class="textHeader">This adapter provides students with a learning task in which they have to match vocabulary words and their translations, thus improving their own vocabulary.</p>
+                  <p class="textHeader">Adapter Information</p>
+                  <ul>
+                    <li><p>Content Creation <b>possible</b></p></li>
+                    <li><p>Dashboard Widget <b>possible</b></p></li>
+                    <li><p>Adapter Standalone <b>possible</b></p></li>
+                  </ul>
+                  <!----------- Functionality Possibilities ----------->
+                  <p class="textHeader">Functionality</p>
+                  <ul>
+                    <li><p>Create Matching Exercises for Vocabulary</p></li>
+                    <li><p>Repeat already learned Vocabulary<p></li>
+                    <li><p>Gives hints for better understanding</p></li>
+                    <li><p>Create vocabulary pool</p></li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>

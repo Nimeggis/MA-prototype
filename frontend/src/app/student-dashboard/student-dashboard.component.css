@@ -1,0 +1,296 @@
+.studentDashboard-column {
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  padding-left: 280px;
+}
+
+.sidebar-column {
+  vertical-align: top;
+}
+
+.studentDashboard-table {
+  margin-left: -2px;
+}
+
+.tableTop {
+  vertical-align: baseline;
+}
+
+.courseSettings {
+  text-align: left;
+  width: 86%;
+  margin-left: 8%;
+  margin-top: -2.5em;
+  display: flex;
+}
+
+.tableContent {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.lecturer-view {
+  margin-left: 10px;
+}
+
+.delete-course {
+  margin-left: auto;
+}
+
+.courseTitle {
+  margin-left: auto;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+
+p {
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.dashboardItems{
+  width: 86%;
+  margin-top: 2em;
+  margin-bottom: 3em;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 5;
+}
+
+.contentWidget {
+  height: 300px;
+  width: 45%;
+  margin: 20px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px 3px #2C388A;
+}
+
+.contentWidget:hover {
+  box-shadow: 0px 0px 8px 5px #2C388A;
+  cursor: pointer;
+}
+
+.contentLarge {
+  width: 55%;
+}
+
+.contentSmall {
+  width: 35%;
+}
+
+footer{
+  bottom: 0px;
+  background-color: rgba(230, 232, 236, 1);
+  border-top: 2px solid gray;
+  height: 100px;
+  width: 90%;
+  position: fixed;
+  z-index: 10;
+}
+
+.quickstart {
+  text-align: left;
+  align-items: center;
+  width: 86%;
+  height: 100%;
+  margin-left: 8%;
+  display: flex;
+}
+
+.quickstartApps {
+  margin-left: 3em;
+  display: flex;
+}
+
+.quickApp{
+  box-shadow: 0px 0px 3px 2px #2C388A;
+  background-color: rgba(44, 56, 138, .1);
+  margin: 10px;
+  padding: 20px 0px 20px 0px;
+  border-radius: 20px;
+  height: 5.5em;
+  width: 5.5em;
+  text-align: center;
+}
+
+.quickApp:hover{
+  box-shadow: 0px 0px 5px 3px #2C388A;
+  cursor: pointer;
+}
+
+.spacer {
+  width: 5em;
+}
+
+.apps {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.widgetHead {
+  text-align: center;
+  display: flex;
+}
+
+.widgetTitle {
+  margin: 15px 0px 0px auto;
+  position: relative;
+}
+
+.studentTitle {
+  display: unset;
+}
+
+.support {
+  margin: 20px 20px 0px auto;
+  position: relative;
+  width: 4em;
+}
+
+.support:hover {
+  cursor: pointer;
+}
+
+.dashboardContent {
+  width: 100%;
+  height: 85%;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.line {
+  width: 0px;
+  height: 2.3em;
+  margin-left: calc(50% - .2em);
+  border: 2px solid rgba(33, 37, 41, .5);
+}
+
+.statusCircle {
+  width: 5em;
+  height: 5em;
+  margin-left: calc(50% - 2.5em);
+  border: 5px solid rgba(237, 47, 47, 1);
+  background-color: rgba(249, 139, 139, 1);
+  border-radius: 50px;
+}
+
+.week {
+  font-weight: bold;
+}
+
+.flashcard {
+  width: 70%;
+  height: 70%;
+  margin-left: 15%;
+  padding: 70px;
+  border: 1px solid gray;
+  box-shadow: 0px 0px 1px 1px gray;
+  background-color: rgba(230, 232, 236, .5);
+  border-radius: 50px;
+}
+
+.formElement {
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.formRow {
+  display: flex;
+  justify-content: center;
+}
+
+.vocabTranslation {
+  margin-top: 10px;
+}
+
+.videoList {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.video {
+  display: inline-flex;
+}
+
+.linkVideo {
+  margin-left: auto;
+}
+
+.pieChart {
+  display: block;
+  width: 16em;
+  margin-left: calc(50% - 8em);;
+}
+
+.quizList {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.quiz {
+  display: inline-flex;
+}
+
+.linkQuiz {
+  margin-left: auto;
+}
+
+.matchingColumn {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 1em;
+}
+
+.matchingRow {
+  width: 100%;
+  margin-bottom: 1em;
+  display: inline-flex;
+}
+
+.chineseVocab {
+  width: 40%;
+  background-color: white;
+  border: 2px solid rgb(206, 212, 218);
+  border-radius: 5px;
+}
+
+.englishVocab {
+  width: 40%;
+  background-color: white;
+  border: 2px solid rgb(206, 212, 218);
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.linkIcon {
+  vertical-align: bottom;
+}
+
+.connectorLeft {
+  height: 10px;
+  width: 10px;
+  background-color: rgba(44, 56, 138, 1);
+  margin-top: 1.5em;
+  margin-left: -5px;
+  border-radius: 50%;
+}
+
+.connectorRight {
+  height: 10px;
+  width: 10px;
+  background-color: rgba(44, 56, 138, 1);
+  margin-top: 1.4em;
+  margin-left: -5px;
+  border-radius: 50%;
+  position: absolute;
+}

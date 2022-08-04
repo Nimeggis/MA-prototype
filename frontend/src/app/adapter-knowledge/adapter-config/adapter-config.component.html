@@ -1,0 +1,194 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<table class="knowledgeAdapter-table">
+  <tr>
+    <!-- Sidebar -->
+    <td class="sidebar-column">
+      <app-sidebar></app-sidebar>
+    </td>
+    <!-- Main Content -->
+    <td class="knowledgeAdapter-column">
+      <!-- Title Header -->
+      <div class="courseTitle">
+        <h1>{{ courseInfo?.courseName }}</h1>
+        <h2>Knowledge Progress - Adapter Configuration</h2>
+    </div>      
+    <table class="tableContent">
+    <tr class="tableTop">
+      <!-- Configuration Column -->
+        <td class="configColumn">
+          <form [formGroup]="configForm" (ngSubmit)="submitConfig()">
+            <div class="configAction">
+                <h1>Configuration</h1>
+                <div class="knowledgeConfig">
+                  <!----------- Main Configuration ----------->
+                  <h2>Knowledge Progress Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label for="colorSuccess">Color for finished progress</label>
+                      <select id="colorSuccess" #colorSuccess class="form-control" [(ngModel)]="colorSuccessSelect" formControlName="colorSuccess">
+                        <option value="green">green</option>
+                        <option value="lightGreen">light green</option>
+                        <option value="orange">orange</option>
+                        <option value="lightOrange">light orange</option>
+                        <option value="red">red</option>
+                        <option value="lightRed">light red</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="colorInProgress">Color for in progress</label>
+                      <select id="colorInProgress" #colorInProgress class="form-control" [(ngModel)]="colorInProgressSelect" formControlName="colorInProgress">
+                        <option value="green">green</option>
+                        <option value="lightGreen">light green</option>
+                        <option value="orange">orange</option>
+                        <option value="lightOrange">light orange</option>
+                        <option value="red">red</option>
+                        <option value="lightRed">light red</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="colorUpcoming">Color for upcoming progress</label>
+                      <select id="colorUpcoming" #colorUpcoming class="form-control" [(ngModel)]="colorUpcomingSelect" formControlName="colorUpcoming">
+                        <option value="green">green</option>
+                        <option value="lightGreen">light green</option>
+                        <option value="orange">orange</option>
+                        <option value="lightOrange">light orange</option>
+                        <option value="red">red</option>
+                        <option value="lightRed">light red</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!----------- Course Timeline Configuration ----------->
+                <div class="courseConfig" *ngIf="linkedAdapter.includes('Course Timeline')">
+                  <h2>Course Timeline Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Course goal for progress</label>
+                      <select id="inputState" #inputState class="form-control" >
+                        <option selected>Choose...</option>
+                        <option>true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Late submission affect progress</label>
+                      <select id="inputState" #inputState class="form-control" >
+                        <option selected>Choose...</option>
+                        <option>true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!----------- Flashcard Configuration ----------->
+                <div class="flashcardsConfig" *ngIf="linkedAdapter.includes('Flashcards')">
+                  <h2>Flashcard Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label># of correctly answered Flashcards until it is learned "sucessfully"</label>
+                      <input type="text" class="form-control" placeholder="7">
+                    </div>
+                  </div>
+                </div>
+                <!----------- Video Upload Configuration ----------->
+                <div class="videoConfig" *ngIf="linkedAdapter.includes('Video Upload')">
+                  <h2>Video Upload Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Influence of watching videos on knowledge (in %)</label>
+                      <input type="text" class="form-control" placeholder="60 (max. 100)">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Video lenght affects knowledge progress</label>
+                      <select id="inputState" #inputState class="form-control" >
+                        <option selected>Choose...</option>
+                        <option>true</option>
+                        <option>false</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Times a video need to be watched to successfully gained knowledge</label>
+                      <input type="text" class="form-control" placeholder="1">
+                    </div>
+                  </div>
+                </div>
+                <!----------- Quiz Upload Configuration ----------->
+                <div class="quizConfig" *ngIf="linkedAdapter.includes('Quiz Upload')">
+                  <h2>Quiz Upload Configuration</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Influence of solving quizzes on knowledge (in %)</label>
+                      <input type="text" class="form-control" placeholder="40 (max. 100)">
+                    </div>
+                    <div class="form-group col-md-4 formElement">
+                      <label for="inputState">Times a quiz needs to be solved to successfully gained knowledge</label>
+                      <input type="text" class="form-control" placeholder="3">
+                    </div>
+                  </div>
+                </div>
+                <!-- Dashboard Integration -->
+                <div class="dashboardConfig">
+                  <h2>Student Dashboard</h2>
+                  <div class="form-row formRow">
+                    <div class="form-group col-md-6 formElement">
+                      <label for="dashboard">Show Knowledge Progress in Student Dashboard</label>
+                      <select id="dashboard" #dashboard class="form-control" (change)="onChange(dashboard.value)" [(ngModel)]="dashboardSelect" formControlName="dashboard">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                        <div [style.display]="displayDash">
+                          <p>Preview: (Example)</p>
+                          <button type="button" class="btn btn-secondary editDash"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon">edit</mat-icon></button>                     
+                          <div class="dashPreview">
+                            <h2>Knowledge Progress</h2>
+                            <div>
+                              <div>
+                                <div class="pieChart">
+                                  <canvas baseChart
+                                    [data]="doughnutChartData"
+                                    [type]="doughnutChartType">
+                                  </canvas>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Configuration</button>
+            </div>
+          </form>
+        </td>
+        <td>
+          <!-- Correlating Column -->
+          <div class="correlationColumn">
+            <h1>Correlating Adapters</h1>
+            <div class="linkedAdapter">
+              <!----------- Linked Adapters ----------->
+              <h2>Linked Adapters</h2>
+              <ul class="list-group adapterList">
+                <li class="list-group-item adapter" *ngFor="let adapter of linkedAdapter">
+                  <p>{{ adapter }}</p>
+                  <button type="button" class="btn btn-danger linkAdapter"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" (click)="delAdapter(adapter)">link_off</mat-icon></button>
+                </li>
+              </ul>
+            </div>
+            <div class="notLinkedAdapter">
+              <!----------- Unlinked Adapters ----------->
+              <h2>Unlinked Adapters</h2>
+              <ul class="list-group adapterList">
+                <li class="list-group-item adapter" *ngFor="let adapter of notLinkedAdapter">
+                  <p>{{ adapter }}</p>
+                  <button type="button" class="btn btn-success linkAdapter"><mat-icon aria-hidden="false" aria-label="Example home icon" class="linkIcon" (click)="addAdapter(adapter)">link</mat-icon></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+</table>
